@@ -4,6 +4,9 @@ Guildnotify::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   get "/sms" => "sms#index"
+  root :to => 'events#index'
+  resources :events
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

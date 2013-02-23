@@ -1,0 +1,4 @@
+=form_for Event.new do |f|
+  =f.text_field :name
+  =f.select(:guildy_ids, Guildy.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'None'}) 
+  =f.submit
