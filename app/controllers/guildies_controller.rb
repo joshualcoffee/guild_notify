@@ -7,7 +7,7 @@ class GuildiesController < ApplicationController
     @guildy = Guildy.new(params[:guildy])
     
     if @guildy.save 
-      
+      redirect_to "/"
     end
     
   end
