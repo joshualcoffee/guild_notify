@@ -2,6 +2,7 @@ class Guildy < ActiveRecord::Base
   attr_accessible :backup, :name, :number
   has_and_belongs_to_many :events
 
+  validates :number, :phony_plausible => true, :length => { :minimum => 10, :maximum =>10 }, :uniqueness => true
   
 
   def send_text_message

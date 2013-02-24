@@ -30,6 +30,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 gem "haml-rails"
+gem 'phony_rails'
 
 gem 'twilio-ruby'
 gem 'activeadmin'

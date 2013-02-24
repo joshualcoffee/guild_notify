@@ -4,7 +4,8 @@ Guildnotify::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   get "/sms" => "sms#index"
-  root :to => 'events#index'
+  root :to => 'guildies#index'
+  resources :guildies, :only =>[:create, :index]
   resources :events
 
 

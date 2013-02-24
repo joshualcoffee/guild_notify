@@ -1,4 +1,20 @@
-=form_for Event.new do |f|
-  =f.text_field :name
-  =f.select(:guildy_ids, Guildy.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'None'}) 
-  =f.submit
+.container
+  =link_to "Latest Raid Status", events_path, :class => "raid_status_btn"
+  -unless @event.messages.empty?
+    %h2
+      YO!
+    %p
+      these members are holding us up from downing da dargons!
+  -else
+    %h2
+      YO!
+    %p
+      NO ONE IS LATE!
+
+  %table
+    -@event.messages.each do |message|
+      %tr
+        %td
+          %h3= message.guildy.name
+          %span
+            = message.message || "awaiting message"
