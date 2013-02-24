@@ -5,8 +5,8 @@ class SmsController < ApplicationController
       guildy = Guildy.find_by_number(number.gsub("+1", ""))
       event = Event.last
       
-      Message.where(:guildy_id => guildy.id, :event_id => event.id)
-      Message.update_attributes(:message => message )
+      message = Message.where(:guildy_id => guildy.id, :event_id => event.id)
+      message.update_attributes(:message => message )
       render :nothing => true
     end
 end
