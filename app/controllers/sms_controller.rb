@@ -6,7 +6,7 @@ class SmsController < ApplicationController
       event = Event.last
       
       Message.where(:guildy_id => guildy.id, :event_id => event.id)
-      Message.updte_attributes(:message => message )
+      Message.update_attributes(:message => message )
       render :nothing => true
     end
 end
