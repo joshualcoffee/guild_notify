@@ -1,15 +1,9 @@
 .container
   =link_to "Latest Raid Status", events_path, :class => "raid_status_btn"
-  -unless @event.messages.empty?
-    %h2
-      YO!
-    %p
-      these members are holding us up from downing da dargons!
-  -else
-    %h2
-      YO!
-    %p
-      NO ONE IS LATE!
+  %h2
+    #{@event.created_at.strftime("%B %d")}
+  %p
+    these members are holding us up from downing da dargons!
 
   %table
     -@event.messages.each do |message|

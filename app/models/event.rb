@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
 
   def send_sms
     self.guildies.each do |guildy|
-      guildy.send_text_message
+      guildy.send_text_message(self)
     end
   end
 

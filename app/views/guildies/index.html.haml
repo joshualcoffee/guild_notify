@@ -1,9 +1,15 @@
 =form_for Guildy.new do |f|
-  %h2
-    YO!
-  %p
-    Please provide your character name and phone number. 
-    This will allow Wipes on Trash to be informed if a raider will be late or not going to show.
+  
+  -if flash[:error]
+    %h2
+      ERROR! ERROR! ERROR!
+    %p= flash[:error]
+  -else
+    %h2
+      YO!
+    %p
+      Please provide your character name and phone number. 
+      This will allow Wipes on Trash to be informed if a raider will be late or not going to show.
   =f.text_field :number, :class => "text", :placeholder => "1231231234"
   =f.text_field :name, :class => "text", :placeholder => "Character Name"
   =f.submit :submit, :class => "submit"
