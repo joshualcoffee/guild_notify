@@ -1,12 +1,12 @@
 class SmsController < ApplicationController
   def index 
       number = params[:From]
-      message = params[:Body]
+      body = params[:Body]
       guildy = Guildy.find_by_number(number.gsub("+1", ""))
       event = Event.last
       
-      message = Message.where(:guildy_id => guildy.id, :event_id => event.id)
-      message.update_attributes(:message => message )
+      message = Message.find(:all, :conditions => ['guildy_id = ? AND event_id = ?', guildy.id, event.id]).first
+      message.update_attributes(:message =>  body)
       render :nothing => true
     end
 end
