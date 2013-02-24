@@ -7,3 +7,5 @@ FactoryGirl.define do
     message "MyString"
   end
 end
+
+

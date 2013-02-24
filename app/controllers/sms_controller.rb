@@ -1,11 +1,10 @@
 class SmsController < ApplicationController
   def index 
-      # let's pretend that we've mapped this action to 
-      # http://localhost:3000/sms in the routes.rb file
-      
-      message_body = params["Body"]
-      from_number = params["From"]
-   
-      SMSLogger.log_text_message from_number, message_body
+      number = params[:From]
+      message = params[:Body]
+      guildy = Guildy.find_by_number(number.gsub("+1", ""))
+      event = Event.last
+      Message.create(:message => message, :guildy_id => guildy.id, :event_id => event.id )
+      render :nothing => true
     end
 end
